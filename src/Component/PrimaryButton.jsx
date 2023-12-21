@@ -2,7 +2,7 @@
 function PrimaryButton({ color, widthbutton, text, icon, onclick }) {
   return (
     <button
-      //  onclick={onclick}
+      //  onclick={onclick}npm
       style={{ width: widthbutton }}
       className={`rounded-sm py-1 text-neutral0 flex items-center `}
     >

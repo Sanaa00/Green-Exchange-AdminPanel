@@ -28,3 +28,9 @@ export default {
   },
   plugins: [],
 };
+
+// TODO:
+// 1 - loading
+// 2 - checky lengthy productakan bkamwa agar 0 bu illustration dabnem
+// 3 - pagination tawaw kam katek data habu
+// 4-
