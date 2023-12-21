@@ -1,13 +1,13 @@
 // eslint-disable-next-line react/prop-types
-function PrimaryButton({ color, widthbutton, text, icon, onclick }) {
+function PrimaryButton({ widthbutton, text, icon }) {
   return (
     <button
-      //  onclick={onclick}npm
+      //  onclick={onclick}
       style={{ width: widthbutton }}
       className={`rounded-sm py-1 text-neutral0 flex items-center `}
     >
       {icon}
-      <spann className="ml-2">{text}</spann>
+      <span className="ml-2">{text}</span>
     </button>
   );
 }
