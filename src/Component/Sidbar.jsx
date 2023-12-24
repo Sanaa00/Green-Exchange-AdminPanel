@@ -6,11 +6,10 @@ import { IoLogOut } from 'react-icons/io5';
 function Sidbar() {
   return (
     <div className="grid text-gray-800  ">
-      <div className="flex justify-between flex-col w-1/6  bg-neutral-100 h-screen fixed shadow-sm  rounded-br rounded-tr">
+      <div className="flex justify-between flex-col w-1/6 h-screen fixed shadow-sm  rounded-br rounded-tr border-r">
         <div className="flex flex-col ">
           <Logo />
-          <div className="w-full">
-            {' '}
+          <div className="">
             {sidbarItem.map((item) => {
               return (
                 <NavLink
@@ -20,7 +19,7 @@ function Sidbar() {
                     (isActive
                       ? 'bg-green  text-neutral-100 rounded-sm'
                       : 'text-gray-800') +
-                    'w-full flex items-center py-4 px-8 rounded-sm'
+                    'w-full flex items-center py-4 px-8 rounded-sm mx-2 '
                   }
                 >
                   <span>{item.icon}</span>

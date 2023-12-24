@@ -5,7 +5,7 @@ import Pagination from '../Component/Pagination';
 function HideProducts() {
   return (
     <div className="p-5">
-      <p className="font-semibold text-lg text-green">Products</p>
+      <p className="font-semibold text-lg text-green">Hide Products</p>
       <div className="grid grid-cols-3 gap-5 mt-5 text-gray-800">
         {UnHideProducts.map((item) => {
           return (
@@ -16,7 +16,7 @@ function HideProducts() {
               <div className="flex justify-between items-center">
                 <p className="p-2 ">{item.name}</p>
                 <button>
-                  <MdOutlineHideImage className="w-6 h-6 m-2" />
+                  <MdOutlineHideImage className="w-6 h-6 m-2 " />
                 </button>
               </div>
 
