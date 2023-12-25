@@ -33,7 +33,7 @@ function Sidbar() {
           {' '}
           <PrimaryButton
             text={'logout'}
-            color="green"
+            // color="green"
             widthbutton={100}
             icon={<IoLogOut className="w-6 h-6" />}
           />
