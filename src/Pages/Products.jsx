@@ -18,7 +18,7 @@ function Products() {
   console.log('products', allproducts);
   if (isError) {
     return (
-      <div>
+      <div className="h-screen flex justify-center items-center">
         <p>Somthing went wrong</p>
       </div>
     );
@@ -26,7 +26,7 @@ function Products() {
   if (isLoading) {
     return (
       <div className="h-screen flex justify-center items-center">
-        <Loading />
+        <Loading height={300} />
       </div>
     );
   }
