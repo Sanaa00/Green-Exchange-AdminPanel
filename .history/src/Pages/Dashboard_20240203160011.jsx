@@ -13,7 +13,6 @@ function Dashboard() {
   return (
     <div className="text-gray-800 p-5">
       <p className="font-semibold text-lg text-green">Dashboard</p>
-
       <div className="mt-5">
         <TotalNumbers
           product={totalProduct}
