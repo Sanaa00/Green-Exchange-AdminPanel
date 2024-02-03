@@ -3,7 +3,6 @@ import ReactPaginate from 'react-paginate';
 
 // eslint-disable-next-line react/prop-types
 function Pagination({ length, setPage }) {
-  console.log('length', length);
   return (
     <div className="mt-5">
       {' '}
@@ -18,7 +17,7 @@ function Pagination({ length, setPage }) {
           window.scrollTo(0, 0);
         }}
         pageRangeDisplayed={5}
-        pageCount={length && Math?.ceil(length / 9)}
+        pageCount={length && Math.ceil(length / 9)}
         previousLabel={<LuArrowLeftSquare className="w-6 h-6 m-2" />}
         renderOnZeroPageCount={null}
       />

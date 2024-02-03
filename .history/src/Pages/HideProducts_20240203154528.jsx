@@ -17,8 +17,8 @@ function HideProducts() {
     id: id,
   });
   console.log('block', blockData);
-  const unBlockHandler = (itemID) => {
-    unBlock({ id, productid: itemID });
+  const unBlockHandler = ({ itemID }) => {
+    unBlock({ id: id, productid: itemID });
   };
   return (
     <div className="p-5">

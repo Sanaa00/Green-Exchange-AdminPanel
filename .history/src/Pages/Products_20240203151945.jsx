@@ -48,10 +48,7 @@ function Products() {
     <div className="p-5">
       <p className="font-semibold text-lg text-green">Products</p>
       {allproducts?.allLength < 1 ? (
-        <div className="w-full h-screen flex justify-center items-center">
-          {' '}
-          <img src={Empty} alt="empty" className="w-96 h-96" />
-        </div>
+        <img src={Empty} alt="empty" />
       ) : (
         <div className="grid grid-cols-3 gap-5 mt-5 text-gray-800 ">
           {allproducts?.data?.map((item) => {

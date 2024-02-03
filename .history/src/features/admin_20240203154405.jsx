@@ -68,5 +68,4 @@ export const {
   useAddDonateMutation,
   useAddBlockMutation,
   useGetBlockDataQuery,
-  useUnBlockMutation,
 } = admin;

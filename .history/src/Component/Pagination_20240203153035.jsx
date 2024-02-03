@@ -3,7 +3,6 @@ import ReactPaginate from 'react-paginate';
 
 // eslint-disable-next-line react/prop-types
 function Pagination({ length, setPage }) {
-  console.log('length', length);
   return (
     <div className="mt-5">
       {' '}

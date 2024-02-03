@@ -9,7 +9,7 @@ function HideProducts() {
   const userId = JSON.parse(localStorage.getItem('admin'));
   const id = userId?.data?._id;
   const [page, setPage] = useState(1);
-  const [unBlock] = useUnBlockMutation();
+const[unBlock]=useUnBlockMutation()
   const { data: blockData } = useGetBlockDataQuery({
     search: '',
     page: page,
@@ -17,9 +17,9 @@ function HideProducts() {
     id: id,
   });
   console.log('block', blockData);
-  const unBlockHandler = (itemID) => {
-    unBlock({ id, productid: itemID });
-  };
+  const unBlockHandler=({itemID}) => {
+    unBlock({id:id,productid:itemID})
+  }
   return (
     <div className="p-5">
       <p className="font-semibold text-lg text-green">Hide Products</p>
@@ -38,7 +38,7 @@ function HideProducts() {
               >
                 <div className="flex justify-between items-center">
                   <p className="p-2 ">{item.name}</p>
-                  <button onClick={() => unBlockHandler(item?._id)}>
+                  <button onClick={()=>unBlockHandler(item?_id)}>
                     <CgUnblock className="w-6 h-6 m-2 " />
                   </button>
                 </div>

@@ -4,11 +4,11 @@ const admin = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAdminData: builder.query({
       query: ({ id }) => `/api/admin/${id}`,
-      providesTags: ['products'],
+      providesTags: ['admin'],
     }),
     getSingleProduct: builder.query({
       query: ({ id }) => `api/product/product/${id}`,
-      providesTags: ['products'],
+      providesTags: ['admin'],
     }),
     getData: builder.query({
       query: (id) => ({
@@ -18,12 +18,11 @@ const admin = apiSlice.injectEndpoints({
       }),
     }),
     getBlockData: builder.query({
-      query: ({ id }) => ({
-        url: `/api/admin/block/${id}`,
+      query: (id) => ({
+        url: '/api/admin/',
         method: 'GET',
-        // body: id,
+        body: id,
       }),
-      providesTags: ['products'],
     }),
     addAdmin: builder.mutation({
       query: ({ email, id }, token) => ({
@@ -50,14 +49,6 @@ const admin = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['products'],
     }),
-    unBlock: builder.mutation({
-      query: ({ id, productid }) => ({
-        url: `api/admin/block/${id}`,
-        method: 'PUT',
-        body: { productid },
-      }),
-      invalidatesTags: ['products'],
-    }),
   }),
 });
 
@@ -67,6 +58,4 @@ export const {
   useGetDataQuery,
   useAddDonateMutation,
   useAddBlockMutation,
-  useGetBlockDataQuery,
-  useUnBlockMutation,
 } = admin;

@@ -50,14 +50,6 @@ const admin = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['products'],
     }),
-    unBlock: builder.mutation({
-      query: ({ id, productid }) => ({
-        url: `api/admin/block/${id}`,
-        method: 'PUT',
-        body: { productid },
-      }),
-      invalidatesTags: ['products'],
-    }),
   }),
 });
 
@@ -68,5 +60,4 @@ export const {
   useAddDonateMutation,
   useAddBlockMutation,
   useGetBlockDataQuery,
-  useUnBlockMutation,
 } = admin;
