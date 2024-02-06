@@ -10,6 +10,8 @@ function Login() {
     email: '',
     password: '',
   });
+  console.log('data', data);
+
   const handleInput = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -21,11 +23,28 @@ function Login() {
       JSON.stringify(localStorage.setItem('admin', JSON.stringify(data?.data)));
     }
   }, [data, isError, isLoading]);
+  // useEffect(() => {
+  //   const checkLogout = localStorage.getItem('admin');
+  //   if (data?.data?.token || checkLogout || data?.status == 'success') {
+  //     <Navigate to="/sidbar" replace />;
+  //   } else if (!data?.data?.token && !checkLogout) {
+  //     <Navigate to="/" replace />;
+  //   }
+  // }, [data?.status, checkLogout, data?.data?.token]);
+  // useEffect(() => {
+  //   const checkLogout = localStorage.getItem('admin');
+  //   if (!data?.data?.token && !checkLogout && data?.status == 'success')
+  //     <Navigate to="/" replace />;
+  // }, [data?.data?.token, data?.status, checkLogout]);
 
+  // if ( && data?.data?.token && checkLogout)
+  //   return <Navigate to="/sidbar" replace />;
   if (data?.data?.token || checkLogout || data?.status == 'success') {
     return <Navigate to="/sidbar" replace />;
   }
-
+  // } else if (checkLogout === null || data === undefined) {
+  //   return <Navigate to="/" replace />;
+  // }
   return (
     <div className="flex flex-col justify-center items-center h-screen text-gray-800">
       <div className="p-5 bg-neutral-50 shadow flex flex-col">

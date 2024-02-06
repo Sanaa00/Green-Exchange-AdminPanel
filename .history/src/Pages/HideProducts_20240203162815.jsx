@@ -14,7 +14,7 @@ function HideProducts() {
     category: '',
     id: id,
   });
-
+  console.log('block', blockData);
   const unBlockHandler = (itemID) => {
     unBlock({ id, productid: itemID });
   };

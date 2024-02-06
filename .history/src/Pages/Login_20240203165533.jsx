@@ -4,12 +4,13 @@ import { useLoginMutation } from '../features/auth';
 import { Navigate } from 'react-router-dom';
 
 function Login() {
-  const checkLogout = JSON.parse(localStorage.getItem('admin'));
+  const checkLogout = localStorage.getItem('admin');
   const [login, { data, isError, isLoading }] = useLoginMutation();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  console.log('data', data);
   const handleInput = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -21,10 +22,21 @@ function Login() {
       JSON.stringify(localStorage.setItem('admin', JSON.stringify(data?.data)));
     }
   }, [data, isError, isLoading]);
-
-  if (data?.data?.token || checkLogout || data?.status == 'success') {
-    return <Navigate to="/sidbar" replace />;
-  }
+  useEffect(() => {
+    if (!data?.data?.token && !checkLogout) {
+      return <Navigate to="/" replace />;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    if (
+      data?.status == 'success' &&
+      data?.data?.token &&
+      checkLogout
+      // localStorage.getItem('admin') !== null
+    )
+      <Navigate to="/sidbar" replace />;
+  }, [checkLogout, data?.data?.token, data?.status]);
 
   return (
     <div className="flex flex-col justify-center items-center h-screen text-gray-800">

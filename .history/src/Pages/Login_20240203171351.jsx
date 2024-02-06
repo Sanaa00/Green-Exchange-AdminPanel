@@ -5,11 +5,14 @@ import { Navigate } from 'react-router-dom';
 
 function Login() {
   const checkLogout = JSON.parse(localStorage.getItem('admin'));
+  console.log(checkLogout !== null);
   const [login, { data, isError, isLoading }] = useLoginMutation();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  console.log(data);
+
   const handleInput = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -21,10 +24,27 @@ function Login() {
       JSON.stringify(localStorage.setItem('admin', JSON.stringify(data?.data)));
     }
   }, [data, isError, isLoading]);
+  useEffect(() => {
+    // const checkLogout = localStorage.getItem('admin');
+    if (
+      data?.data?.token === undefined &&
+      checkLogout === null &&
+      !checkLogout
+    ) {
+      <Navigate to="/" replace />;
+    } else if (data?.data?.token || checkLogout !== null) {
+      <Navigate to="/sidbar" replace />;
+    }
+  }, [checkLogout, data?.data?.token]);
+  // useEffect(() => {
+  //   // const checkLogout = localStorage.getItem('admin');
+  //   if (checkLogout || checkLogout !== null) {
+  //     <Navigate to="/sidbar" replace />;
+  //   }
+  // }, [checkLogout, data?.data?.token]);
 
-  if (data?.data?.token || checkLogout || data?.status == 'success') {
-    return <Navigate to="/sidbar" replace />;
-  }
+  // if (data?.status == 'success' && data?.data?.token)
+  //   return <Navigate to="/sidbar" replace />;
 
   return (
     <div className="flex flex-col justify-center items-center h-screen text-gray-800">

@@ -25,7 +25,9 @@ function Login() {
   if (data?.data?.token || checkLogout || data?.status == 'success') {
     return <Navigate to="/sidbar" replace />;
   }
-
+  // } else if (checkLogout === null || data === undefined) {
+  //   return <Navigate to="/" replace />;
+  // }
   return (
     <div className="flex flex-col justify-center items-center h-screen text-gray-800">
       <div className="p-5 bg-neutral-50 shadow flex flex-col">
