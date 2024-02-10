@@ -9,7 +9,11 @@ function AddCityForm() {
     arabic: '',
     kurdi: '',
   });
-
+  // const [city, setCity] = useState([
+  //   { lang: 'english', name: '' },
+  //   { lang: 'arabic', name: '' },
+  //   { lang: 'kurdi', name: '' },
+  // ]);
   const handleInput = (e) => {
     const { name, value } = e.target;
     setCity((prev) => ({
@@ -36,7 +40,7 @@ function AddCityForm() {
 
   return (
     <div className="flex flex-col text-gray-800">
-      <div className="mt-2 flex flex-col">
+      <div className="mt-5 flex flex-col">
         <label htmlFor="english">English Name</label>
         <input
           id="english"

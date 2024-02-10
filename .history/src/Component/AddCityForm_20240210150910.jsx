@@ -9,7 +9,11 @@ function AddCityForm() {
     arabic: '',
     kurdi: '',
   });
-
+  // const [city, setCity] = useState([
+  //   { lang: 'english', name: '' },
+  //   { lang: 'arabic', name: '' },
+  //   { lang: 'kurdi', name: '' },
+  // ]);
   const handleInput = (e) => {
     const { name, value } = e.target;
     setCity((prev) => ({
@@ -18,25 +22,27 @@ function AddCityForm() {
     }));
   };
 
+  // const handleInput = (e) => {
+  //   setCity({ ...city, [e.target.name]: e.target.value });
+  // };
   const handleFormData = () => {
-    const cityData = [
-      { lang: 'english', name: city.english },
-      { lang: 'arabic', name: city.arabic },
-      { lang: 'kurdi', name: city.kurdi },
-    ];
-    console.log('city', {
+    console.log('city', city);
+    // Pass an array of objects to addCity
+    addCity({
       name: [
         { lang: 'english', name: city.english },
         { lang: 'arabic', name: city.arabic },
         { lang: 'kurdi', name: city.kurdi },
       ],
     });
-    addCity({ name: cityData });
   };
-
+  // const handleFormData = () => {
+  //   console.log('city', city);
+  //   addCity({ name: [city] });
+  // };
   return (
     <div className="flex flex-col text-gray-800">
-      <div className="mt-2 flex flex-col">
+      <div className="mt-5 flex flex-col">
         <label htmlFor="english">English Name</label>
         <input
           id="english"
@@ -63,13 +69,13 @@ function AddCityForm() {
       <div className="mt-5 flex flex-col">
         <label htmlFor="english">Arabic Name</label>
         <input
-          id="arabic"
-          value={city.arabic}
-          onChange={handleInput}
+          id={city[1].name}
+          value={city[1].name}
+          onChange={(e) => handleInput(e)}
           required={true}
-          name="arabic"
+          name={city[1].name}
           className="mt-2 w-96 focus:outline-none border-2 py-2 rounded-sm p-2 hover:duration-300 duration-300 border-gray-400 hover:border-gray-500 focus:border-green"
-          placeholder="City"
+          placeholder="city"
         />
       </div>
       <div className="mt-5">

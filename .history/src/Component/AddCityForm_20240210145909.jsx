@@ -4,48 +4,34 @@ import PrimaryButton from './PrimaryButton';
 import { useState } from 'react';
 function AddCityForm() {
   const [addCity] = useAddCityMutation();
-  const [city, setCity] = useState({
-    english: '',
-    arabic: '',
-    kurdi: '',
-  });
+  const [city, setCity] = useState([
+    {
+      english: '',
+    },
+    { kurdi: '' },
+    { arabic: '' },
+  ]);
 
   const handleInput = (e) => {
-    const { name, value } = e.target;
-    setCity((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setCity({ ...city, [e.target.name]: e.target.value });
   };
 
   const handleFormData = () => {
-    const cityData = [
-      { lang: 'english', name: city.english },
-      { lang: 'arabic', name: city.arabic },
-      { lang: 'kurdi', name: city.kurdi },
-    ];
-    console.log('city', {
-      name: [
-        { lang: 'english', name: city.english },
-        { lang: 'arabic', name: city.arabic },
-        { lang: 'kurdi', name: city.kurdi },
-      ],
-    });
-    addCity({ name: cityData });
+    console.log('city', city);
+    addCity({ name: [city] });
   };
-
   return (
     <div className="flex flex-col text-gray-800">
-      <div className="mt-2 flex flex-col">
+      <div className="mt-5 flex flex-col">
         <label htmlFor="english">English Name</label>
         <input
           id="english"
           value={city.english}
-          onChange={handleInput}
+          onChange={(e) => handleInput(e)}
           required={true}
           name="english"
           className="mt-2 w-96 focus:outline-none border-2 py-2 rounded-sm p-2 hover:duration-300 duration-300 border-gray-400 hover:border-gray-500 focus:border-green"
-          placeholder="City"
+          placeholder="city"
         />
       </div>
       <div className="mt-5 flex flex-col">
@@ -53,11 +39,11 @@ function AddCityForm() {
         <input
           id="kurdi"
           value={city.kurdi}
-          onChange={handleInput}
+          onChange={(e) => handleInput(e)}
           required={true}
           name="kurdi"
           className="mt-2 w-96 focus:outline-none border-2 py-2 rounded-sm p-2 hover:duration-300 duration-300 border-gray-400 hover:border-gray-500 focus:border-green"
-          placeholder="City"
+          placeholder="city"
         />
       </div>
       <div className="mt-5 flex flex-col">
@@ -65,11 +51,11 @@ function AddCityForm() {
         <input
           id="arabic"
           value={city.arabic}
-          onChange={handleInput}
+          onChange={(e) => handleInput(e)}
           required={true}
           name="arabic"
           className="mt-2 w-96 focus:outline-none border-2 py-2 rounded-sm p-2 hover:duration-300 duration-300 border-gray-400 hover:border-gray-500 focus:border-green"
-          placeholder="City"
+          placeholder="city"
         />
       </div>
       <div className="mt-5">

@@ -6,10 +6,10 @@ const category = apiSlice.injectEndpoints({
       query: () => `/api/category`,
       providesTags: ['category'],
     }),
-    // getSingleProduct: builder.query({
-    //   query: ({ id }) => `api/product/product/${id}`,
-    //   providesTags: ['products'],
-    // }),
+    getSingleProduct: builder.query({
+      query: ({ id }) => `api/product/product/${id}`,
+      providesTags: ['products'],
+    }),
 
     addProductUpdate: builder.mutation({
       query: (body, token) => ({
@@ -25,6 +25,6 @@ const category = apiSlice.injectEndpoints({
 
 export const {
   useGetCategoryQuery,
-  // useGetSingleProductQuery,
+  useGetSingleProductQuery,
   useAddProductUpdateMutation,
 } = category;

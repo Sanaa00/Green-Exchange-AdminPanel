@@ -25,6 +25,6 @@ const category = apiSlice.injectEndpoints({
 
 export const {
   useGetCategoryQuery,
-  // useGetSingleProductQuery,
+  useGetSingleProductQuery,
   useAddProductUpdateMutation,
 } = category;

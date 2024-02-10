@@ -9,6 +9,7 @@ function AddSubCategoryForm() {
   const [cat, setCat] = useState([]);
   const [addSubCategory] = useAddSubCategoryMutation();
   const { data: category } = useGetCategorySubCategoryQuery();
+  console.log(category);
   const [subcategory, setSubCategory] = useState({
     parentCategory: '',
     english: '',
@@ -40,7 +41,7 @@ function AddSubCategoryForm() {
   }, [category?.data]);
   return (
     <div className="flex flex-col text-gray-800">
-      <div className="mt-2 flex flex-col">
+      <div className="mt-5 flex flex-col">
         <label htmlFor="parentCategory">Category</label>
         <select
           onChange={handleInput}

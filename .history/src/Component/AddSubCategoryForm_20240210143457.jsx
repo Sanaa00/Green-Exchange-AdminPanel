@@ -26,7 +26,7 @@ function AddSubCategoryForm() {
     setCat([]);
     category?.data?.map((category) => {
       category?.name?.map((name) => {
-        if (name.lang == 'english') {
+        if (name?.lang == 'english') {
           setCat((prev) => [
             ...prev,
             {
@@ -40,7 +40,7 @@ function AddSubCategoryForm() {
   }, [category?.data]);
   return (
     <div className="flex flex-col text-gray-800">
-      <div className="mt-2 flex flex-col">
+      <div className="mt-5 flex flex-col">
         <label htmlFor="parentCategory">Category</label>
         <select
           onChange={handleInput}

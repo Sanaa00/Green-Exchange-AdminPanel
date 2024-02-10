@@ -8,7 +8,8 @@ import {
 function AddSubCategoryForm() {
   const [cat, setCat] = useState([]);
   const [addSubCategory] = useAddSubCategoryMutation();
-  const { data: category } = useGetCategorySubCategoryQuery();
+  const { data: categoryData } = useGetCategorySubCategoryQuery();
+  console.log(categoryData);
   const [subcategory, setSubCategory] = useState({
     parentCategory: '',
     english: '',
@@ -24,23 +25,25 @@ function AddSubCategoryForm() {
   };
   useEffect(() => {
     setCat([]);
-    category?.data?.map((category) => {
-      category?.name?.map((name) => {
-        if (name.lang == 'english') {
-          setCat((prev) => [
-            ...prev,
-            {
-              name: name.name,
-              _id: category._id,
-            },
-          ]);
-        }
-      });
-    });
-  }, [category?.data]);
+    categoryData?.data?.map((category) => {
+      (<div></div>)
+    //   category?.name?.map((name) => {
+    //     if (name.lang == 'english') {
+    //       setCat((prev) => [
+    //         ...prev,
+    //         {
+    //           name: name.name,
+    //           _id: category._id,
+    //         },
+    //       ]);
+    //     }
+    //   });
+    // }
+    );
+  }, [categoryData?.data]);
   return (
     <div className="flex flex-col text-gray-800">
-      <div className="mt-2 flex flex-col">
+      <div className="mt-5 flex flex-col">
         <label htmlFor="parentCategory">Category</label>
         <select
           onChange={handleInput}

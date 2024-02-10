@@ -23,7 +23,7 @@ function AddAdminForm() {
           onChange={(e) => handleInput(e)}
           required={true}
           name="email"
-          className="mt-2 w-96 focus:outline-none border-2 py-2 rounded-sm p-2 hover:duration-300 duration-300 border-gray-400 hover:border-gray-500 focus:border-green"
+          className="mt-2 lg:w-80 w-96 focus:outline-none border-2 py-2 rounded-sm p-2 hover:duration-300 duration-300 border-gray-400 hover:border-gray-500 focus:border-green"
           placeholder="email"
         />
       </div>

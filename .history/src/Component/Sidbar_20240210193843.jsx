@@ -31,7 +31,7 @@ function Sidbar() {
                     (isActive
                       ? 'bg-green  text-neutral-100 rounded-sm'
                       : 'text-gray-800') +
-                    'w-full flex items-center py-4 lg:px-2 xl:px-8 rounded-sm mx-2 '
+                    'w-full flex items-center py-4 px-8 rounded-sm mx-2 '
                   }
                 >
                   <span>{item.icon}</span>
