@@ -30,11 +30,14 @@ function AddSubCategoryForm() {
       { lang: 'arabic', name: subcategory.arabic },
       { lang: 'kurdi', name: subcategory.kurdi },
     ];
-
-    addSubCategory({ parentCategory: parentCategory, name: cityData });
-  };
-  const handleInputKey = (e) => {
-    setParentCategory(e.target.value);
+    console.log('city', {
+      name: [
+        { lang: 'english', name: subcategory.english },
+        { lang: 'arabic', name: subcategory.arabic },
+        { lang: 'kurdi', name: subcategory.kurdi },
+      ],
+    });
+    addSubCategory({ name: cityData });
   };
   useEffect(() => {
     setCat([]);
@@ -57,7 +60,7 @@ function AddSubCategoryForm() {
       <div className="mt-2 flex flex-col">
         <label htmlFor="parentCategory">Category</label>
         <select
-          onChange={handleInputKey}
+          onChange={handleInput}
           id="parentCategory"
           name="parentCategory"
           placeholder="category"

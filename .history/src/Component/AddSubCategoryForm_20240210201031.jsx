@@ -7,7 +7,6 @@ import {
 
 function AddSubCategoryForm() {
   const [cat, setCat] = useState([]);
-  const [parentCategory, setParentCategory] = useState('');
   const [addSubCategory] = useAddSubCategoryMutation();
   const { data: category } = useGetCategorySubCategoryQuery();
   const [subcategory, setSubCategory] = useState({
@@ -18,7 +17,7 @@ function AddSubCategoryForm() {
   });
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setSubCategory((prev) => ({
+    setCity((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -26,15 +25,18 @@ function AddSubCategoryForm() {
 
   const handleFormData = () => {
     const cityData = [
-      { lang: 'english', name: subcategory.english },
-      { lang: 'arabic', name: subcategory.arabic },
-      { lang: 'kurdi', name: subcategory.kurdi },
+      { lang: 'english', name: city.english },
+      { lang: 'arabic', name: city.arabic },
+      { lang: 'kurdi', name: city.kurdi },
     ];
-
-    addSubCategory({ parentCategory: parentCategory, name: cityData });
-  };
-  const handleInputKey = (e) => {
-    setParentCategory(e.target.value);
+    console.log('city', {
+      name: [
+        { lang: 'english', name: city.english },
+        { lang: 'arabic', name: city.arabic },
+        { lang: 'kurdi', name: city.kurdi },
+      ],
+    });
+    addCity({ name: cityData });
   };
   useEffect(() => {
     setCat([]);
@@ -57,7 +59,7 @@ function AddSubCategoryForm() {
       <div className="mt-2 flex flex-col">
         <label htmlFor="parentCategory">Category</label>
         <select
-          onChange={handleInputKey}
+          onChange={handleInput}
           id="parentCategory"
           name="parentCategory"
           placeholder="category"

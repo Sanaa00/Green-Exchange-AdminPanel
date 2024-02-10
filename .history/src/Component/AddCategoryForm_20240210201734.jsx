@@ -24,7 +24,13 @@ function AddCategoryForm() {
       { lang: 'arabic', name: category.arabic },
       { lang: 'kurdi', name: category.kurdi },
     ];
-
+    console.log('city', {
+      name: [
+        { lang: 'english', name: category.english },
+        { lang: 'arabic', name: category.arabic },
+        { lang: 'kurdi', name: category.kurdi },
+      ],
+    });
     addCategory({ name: categoryData });
   };
   return (

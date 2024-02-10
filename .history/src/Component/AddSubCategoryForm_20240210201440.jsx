@@ -30,7 +30,7 @@ function AddSubCategoryForm() {
       { lang: 'arabic', name: subcategory.arabic },
       { lang: 'kurdi', name: subcategory.kurdi },
     ];
-
+    console.log({ parentCategory: parentCategory, name: cityData });
     addSubCategory({ parentCategory: parentCategory, name: cityData });
   };
   const handleInputKey = (e) => {

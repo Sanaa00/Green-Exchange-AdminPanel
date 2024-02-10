@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import PrimaryButton from './PrimaryButton';
-import { useAddCategoryMutation } from '../features/admin';
+import { useAddSubCategoryMutation } from '../features/admin';
 
 function AddCategoryForm() {
-  const [addCategory] = useAddCategoryMutation();
+  const [addSubCategory] = useAddSubCategoryMutation();
   const [category, setCategory] = useState({
     english: '',
     kurdi: '',
@@ -19,13 +19,19 @@ function AddCategoryForm() {
   };
 
   const handleFormData = () => {
-    const categoryData = [
+    const cityData = [
       { lang: 'english', name: category.english },
       { lang: 'arabic', name: category.arabic },
       { lang: 'kurdi', name: category.kurdi },
     ];
-
-    addCategory({ name: categoryData });
+    console.log('city', {
+      name: [
+        { lang: 'english', name: category.english },
+        { lang: 'arabic', name: category.arabic },
+        { lang: 'kurdi', name: category.kurdi },
+      ],
+    });
+    addSubCategory({ name: cityData });
   };
   return (
     <div className="flex flex-col text-gray-800">
