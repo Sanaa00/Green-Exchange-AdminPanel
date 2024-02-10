@@ -77,7 +77,7 @@ const admin = apiSlice.injectEndpoints({
     }),
     addSubCategory: builder.mutation({
       query: (subCategory, token) => ({
-        url: `api/category/sub`,
+        url: `api/sub`,
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
         body: subCategory,

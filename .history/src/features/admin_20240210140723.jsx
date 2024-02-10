@@ -73,16 +73,16 @@ const admin = apiSlice.injectEndpoints({
         headers: { Authorization: `Bearer ${token}` },
         body: category,
       }),
-      invalidatesTags: ['category'],
+      invalidatesTags: ['city'],
     }),
     addSubCategory: builder.mutation({
-      query: (subCategory, token) => ({
-        url: `api/category/sub`,
+      query: (category, token) => ({
+        url: `api/sub`,
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
-        body: subCategory,
+        body: category,
       }),
-      invalidatesTags: ['category'],
+      invalidatesTags: ['city'],
     }),
     getCategorySubCategory: builder.query({
       query: () => `api/category`,

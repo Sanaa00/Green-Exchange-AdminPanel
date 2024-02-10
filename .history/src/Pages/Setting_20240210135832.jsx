@@ -1,7 +1,6 @@
 import AddAdminForm from '../Component/AddAdminForm';
 import AddCategoryForm from '../Component/AddCategoryForm';
 import AddCityForm from '../Component/AddCityForm';
-import AddSubCategoryForm from '../Component/AddSubCategoryForm';
 
 function Setting() {
   return (
@@ -18,10 +17,8 @@ function Setting() {
       </div>{' '}
       <div className="flex flex-col w-1/2">
         {' '}
-        <p className="font-semibold text-lg text-green w-full">
-          Add Sub Category
-        </p>
-        <AddSubCategoryForm />
+        <p className="font-semibold text-lg text-green w-full">Add Category</p>
+        <AddCategoryForm />
       </div>{' '}
       <div className="flex flex-col w-1/2">
         {' '}
